@@ -32,7 +32,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13rem;
+    font-size: 14rem;
     line-height: .05;
     color: #FF1493;
     font-family: "Bebas Neue", serif;
@@ -47,11 +47,12 @@
     margin-bottom: 1.5rem;  
   }
   
-  .magazine-subtitle {
+  .subtitle {
     font-size: 2.5rem; 
     font-weight: 400;  
     color: #C0B8A4;     
-    margin: 0;          
+    margin: 0;
+    margin-left: 600px;         
   }
   
   .stacked-boxes {

@@ -14,8 +14,8 @@ const HomePage = () => {
                 <header className="header">
                     <div className="title-box">
                         <div className="title-container">                        
-                            <h1 className="magazine-title">ARRON A</h1>
-                            <h2 className="magazine-subtitle">Software Engineer</h2>
+                            <h1 className="title">ARRON</h1>
+                            <h2 className="subtitle">Software Engineer</h2>
                             </div>
                         <div className="stacked-boxes">
                             <Link to="/projects" className="box">Projects</Link>
