@@ -1,46 +1,37 @@
 const express = require('express');
-const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const PORT = 5000;
-
-// Enables CORS for frontend
 app.use(cors());
-
-// body parser for JSON
 app.use(express.json());
 
-// Initializes SQLite database
-const db = new sqlite3.Database('./db/blog.db', (err) => {
-    if (err) {
-        console.error('Error opening database:', err);
-    } else {
-        console.log('Connected to SQLite database');
-    }
+// Connects to SQLite database
+const dbPath = path.resolve(__dirname, 'db', 'blog.db');
+const db = new sqlite3.Database(dbPath, (err) => {
+  if (err) {
+    console.error('Error connecting to database:', err.message);
+  } else {
+    console.log('Connected to the SQLite database.');
+  }
 });
 
-// defines an API route to fetch blog posts
-app.get('/api/blog', (req, res) => {
-    db.all('SELECT * FROM posts', [], (err, rows) => {
-      if (err) {
-        console.error('Error fetching data from SQLite:', err);
-        return res.status(500).send('Internal server error');
-      }
+// API routes for fetching blog posts
+app.get('/api/blogs', (req, res) => {
+  const query = 'SELECT * FROM blogs';
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      console.error('Error fetching blog posts:', err.message);
+      res.status(500).send('Error fetching blog posts');
+    } else {
       res.json(rows);
-    });
+    }
   });
+});
 
-// serves React app in production
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
-    });
-}
-
-//starts server
+// Starts the server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
