@@ -1,10 +1,20 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './../components/HomePage/HomePage';
+import Blog from './../components/Blog/Blog';
+import Projects from './../components/Projects/Projects';
+import Websites from './../components/Websites/Websites';
 
 function App() {
   return (
-    <div>
-      <h1 className="testing">TEsting, TESTING, TESTING!!!</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/websites" element={<Websites />} />
+      </Routes>
+    </Router>
   );
 }
 
