@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './../Blog/Blog.css';
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -16,17 +17,18 @@ const Blog = () => {
   }, []);
 
   return (
-    <div>
+    <div className="blog-container">
       <h1>Blog Posts</h1>
-      <ul>
+      <div className="blog-posts">
         {blogPosts.map((post) => (
-          <li key={post.id}>
+          <div key={post.id} className="blog-post">
+            <img src={post.image_url} alt={post.title} className="blog-image" />
             <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <small>{post.created_at}</small> {/* Displaying the created_at field */}
-          </li>
+            <p>{post.content.substring(0, 150)}...</p> {/* Show an excerpt */}
+            <a href={`/blog/${post.id}`} className="read-more">Read More</a>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
