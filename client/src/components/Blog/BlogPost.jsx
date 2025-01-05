@@ -11,7 +11,7 @@ function BlogPost() {
     const fetchBlogPost = async () => {
       try {
         // Need to populate with 1 blog--getting by ID
-        const response = await axios.get('/api/blog/${id}'); 
+        const response = await axios.get(`/api/blog/${id}`); 
         setBlogPost(response.data);
       } catch (err) {
         console.error('Error fetching the blog post:', err);
