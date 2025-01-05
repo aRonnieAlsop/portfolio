@@ -52,16 +52,25 @@
     color: #555;
   }
   
-  .read-more {
-    display: inline-block;
-    font-size: 1.4rem;
-    font-weight: 2rem;
-    color: black;
-    margin-top: 1rem;
-    text-decoration: none;
+  .read-more-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 0.5rem;
   }
   
-  .read-more:hover {
-    text-decoration: underline;
+  .read-more-button:hover {
+    background-color: #0056b3;
   }
+  
+  .blog-post-content {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
   

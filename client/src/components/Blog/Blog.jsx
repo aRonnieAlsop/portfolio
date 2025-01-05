@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './../Blog/Blog.css';
+import { Link } from 'react-router-dom';
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
+  const [expandedPosts, setExpandedPosts] = useState({});
 
   useEffect(() => {
-    // Fetch blog posts from the backend
+    // Fetches blog posts from the backend
     axios.get('http://localhost:5000/api/blogs')
       .then(response => {
-        setBlogPosts(response.data);  // Update the state with the data
+        setBlogPosts(response.data);  // Updates the state with the data
       })
       .catch(error => {
         console.error('Error fetching blog posts:', error);
       });
   }, []);
+
+    // Toggles the expanded state for a blog post
+    const toggleReadMore = (postId) => {
+        setExpandedPosts((prevState) => ({
+          ...prevState,
+          [postId]: !prevState[postId],
+        }));
+      };
 
   return (
     <div className="blog-container">
@@ -29,8 +39,14 @@ const Blog = () => {
                 {new Date(post.created_at).toLocaleDateString()}
             </p>
             <h2>{post.title}</h2>
-            <p>{post.content.substring(0, 150)}...</p> {/* Show an excerpt */}
-            <a href={`/blog/${post.id}`} className="read-more">Read More</a>
+            <p className="blog-post-content">
+              {expandedPosts[post.id]
+                ? post.content // Show full content if expanded
+                : `${post.content.slice(0, 100)}...`} {/* Show a preview */}
+            </p>
+            <Link to={`/blogs/${post.id}`} className="read-more-button">
+                Read More
+            </Link>
           </div>
         ))}
       </div>

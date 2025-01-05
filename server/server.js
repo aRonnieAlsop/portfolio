@@ -35,6 +35,23 @@ app.get('/api/blogs', (req, res) => {
   });
 });
 
+app.get('/api/blogs/:id', (req, res) => {
+  const { id } = req.params;
+  const query = 'SELECT * FROM blogs WHERE id = ?';
+
+  db.get(query, [id], (err, row) => {
+    if (err) {
+      console.error('Error fetching the blog post:', err.message);
+      res.status(500).send('Error fetching the blog post');
+    } else if (!row) {
+      res.status(404).send('Blog post not found');
+    } else {
+      res.json(row);
+    }
+  });
+});
+
+
 // Starts the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
