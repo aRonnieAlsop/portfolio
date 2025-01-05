@@ -17,9 +17,14 @@ const db = new sqlite3.Database(dbPath, (err) => {
   }
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello from the backend!');
+});
+
+
 // API routes for fetching blog posts
 app.get('/api/blogs', (req, res) => {
-  const query = 'SELECT * FROM blogs';
+  const query = 'SELECT * FROM blog_posts';
   db.all(query, [], (err, rows) => {
     if (err) {
       console.error('Error fetching blog posts:', err.message);
