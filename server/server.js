@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const db = require('./init_db'); // Import the database connection
+const db = require('./db/init_db'); // Imported database connection
 
 const app = express();
 app.use(cors());
