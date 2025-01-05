@@ -25,6 +25,9 @@ const Blog = () => {
         {blogPosts.map((post) => (
           <div key={post.id} className="blog-post">
             <img src={post.image_url} alt={post.title} className="blog-image" />
+            <p className="blog-post-date">
+                {new Date(post.created_at).toLocaleDateString()}
+            </p>
             <h2>{post.title}</h2>
             <p>{post.content.substring(0, 150)}...</p> {/* Show an excerpt */}
             <a href={`/blog/${post.id}`} className="read-more">Read More</a>
