@@ -10,3 +10,24 @@
     text-align: center;
 }
 
+.blog-post-content {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .blog-post-content {
+        max-width: 95%;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post-content {
+        max-width: 100%;
+        padding: 25px;
+    }
+}
+

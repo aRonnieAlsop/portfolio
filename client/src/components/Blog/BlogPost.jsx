@@ -37,7 +37,7 @@ const BlogPost = () => {
   return (
     <div>
       <h1 className="blog-title">{blogPost.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: blogPost.blog_content }} />
+      <div dangerouslySetInnerHTML={{ __html: blogPost.blog_content }} className="blog-post-content" />
     </div>
   );
 };
