@@ -29,7 +29,8 @@ const validateId = (req, res, next) => {
 };
 
 
-app.get('/api/blogs/:id', validateId, (req, res) => {
+// API route to fetch a single blog post by ID
+app.get('/api/blogs/:id', (req, res) => {
   const { id } = req.params;
   const query = 'SELECT * FROM blog_posts WHERE id = ?';
   db.get(query, [id], (err, row) => {
@@ -39,7 +40,18 @@ app.get('/api/blogs/:id', validateId, (req, res) => {
     } else if (!row) {
       res.status(404).send('Blog post not found');
     } else {
-      res.json(row);
+      // Read the content file specified in content_file_path
+      const filePath = path.join(__dirname, 'public', row.content_file_path);
+
+      fs.readFile(filePath, 'utf-8', (err, content) => {
+        if (err) {
+          console.error('Error reading file:', err);
+          res.status(500).send('Error reading content file');
+        } else {
+          // Return the blog post data along with the content
+          res.json({ ...row, content });
+        }
+      });
     }
   });
 });
