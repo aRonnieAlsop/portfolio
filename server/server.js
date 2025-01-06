@@ -40,18 +40,7 @@ app.get('/api/blogs/:id', (req, res) => {
     } else if (!row) {
       res.status(404).send('Blog post not found');
     } else {
-      // Read the content file specified in content_file_path
-      const filePath = path.join(__dirname, 'public', row.content_file_path);
-
-      fs.readFile(filePath, 'utf-8', (err, content) => {
-        if (err) {
-          console.error('Error reading file:', err);
-          res.status(500).send('Error reading content file');
-        } else {
-          // Return the blog post data along with the content
-          res.json({ ...row, content });
-        }
-      });
+      res.json(row);
     }
   });
 });
