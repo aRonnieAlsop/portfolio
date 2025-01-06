@@ -34,7 +34,7 @@ const Blog = () => {
             <p className="blog-post-content">
               {expandedPosts[post.id]
                 ? post.blog_content // Show full content if expanded
-                : `${post.blog_content.slice(0, 100)}...`} {/* Show a preview */}
+                : post.synopsis || `${post.blog_content.slice(0, 100)}...`} {/* Show a synopsis of the blog post */}
             </p>
             <Link to={`/blogs/${post.id}`} className="read-more-button">
                 Read More
