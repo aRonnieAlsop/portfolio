@@ -18,14 +18,6 @@ const Blog = () => {
       });
   }, []);
 
-    // Toggles the expanded state for a blog post
-    const toggleReadMore = (postId) => {
-        setExpandedPosts((prevState) => ({
-          ...prevState,
-          [postId]: !prevState[postId],
-        }));
-      };
-
   return (
     <div className="blog-container">
     <div className="title-wrapper">
@@ -41,8 +33,8 @@ const Blog = () => {
             <h2>{post.title}</h2>
             <p className="blog-post-content">
               {expandedPosts[post.id]
-                ? post.content // Show full content if expanded
-                : `${post.content.slice(0, 100)}...`} {/* Show a preview */}
+                ? post.blog_content // Show full content if expanded
+                : `${post.blog_content.slice(0, 100)}...`} {/* Show a preview */}
             </p>
             <Link to={`/blogs/${post.id}`} className="read-more-button">
                 Read More

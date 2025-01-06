@@ -4,22 +4,21 @@ import { useParams } from 'react-router-dom';
 const BlogPost = () => {
   const { id } = useParams(); // Extract the ID from the route
   const [blogPost, setBlogPost] = useState(null);
-
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBlogPost = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/blogs/${id}`); //will need to replace with actual route
+        const response = await fetch(`http://localhost:5000/api/blogs/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch the blog post');
         }
         const data = await response.json();
-        setBlogPost(data);
+        setBlogPost(data); // Store the entire blog post
+
       } catch (err) {
         console.error('Error fetching the blog post:', err);
-        setError('It\'\s not you, it\'\s me. Please try me again later.');
-        setError(err.message);
+        setError("It's not you, it's me. Please try again later.");
       }
     };
 
@@ -37,7 +36,7 @@ const BlogPost = () => {
   return (
     <div>
       <h1>{blogPost.title}</h1>
-      <p>{blogPost.content}</p>
+      <div dangerouslySetInnerHTML={{ __html: blogPost.blog_content }} />
     </div>
   );
 };
