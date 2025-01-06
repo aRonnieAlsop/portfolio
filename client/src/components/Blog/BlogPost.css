@@ -1,0 +1,12 @@
+.blog-title {
+    font-size: 4.4rem;
+    font-family: Roboto;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    width: 100vw;
+    margin-left: -50vw;
+    position: relative;
+    left: 50%;
+    text-align: center;
+}
+

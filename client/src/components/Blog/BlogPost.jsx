@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './BlogPost.css';
 
 const BlogPost = () => {
   const { id } = useParams(); // Extract the ID from the route
@@ -35,7 +36,7 @@ const BlogPost = () => {
 
   return (
     <div>
-      <h1>{blogPost.title}</h1>
+      <h1 className="blog-title">{blogPost.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: blogPost.blog_content }} />
     </div>
   );
