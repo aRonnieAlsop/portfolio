@@ -19,8 +19,17 @@ app.get('/api/blogs', (req, res) => {
   });
 });
 
-// API route to fetch a single blog post by ID
-app.get('/api/blogs/:id', (req, res) => {
+//middleware to check if ID is an integer
+const validateId = (req, res, next) => {
+  const { id } = req.params;
+  if (!/^\d+$/.test(id)) {
+    return res.status(400).send('Invalid ID format. ID must be a positive integer.');
+  }
+  next();
+};
+
+
+app.get('/api/blogs/:id', validateId, (req, res) => {
   const { id } = req.params;
   const query = 'SELECT * FROM blog_posts WHERE id = ?';
   db.get(query, [id], (err, row) => {
@@ -34,6 +43,8 @@ app.get('/api/blogs/:id', (req, res) => {
     }
   });
 });
+
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
