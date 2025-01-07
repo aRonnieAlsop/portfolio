@@ -4,7 +4,7 @@ import HomePage from './components/HomePage/HomePage';
 import Blog from './components/Blog/Blog';
 import BlogPost from './components/Blog/BlogPost';
 import Projects from './components/Projects/Projects';
-import ProjectDetails from './components/ProjectDetails/ProjectDetail';
+import ProjectIDE from './components/Project_IDE/ProjectIDE';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blogs/:id" element={<BlogPost />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" component={ProjectDetails} />
+        <Route path="/projects/:id" element={<ProjectIDE />} />
         {/* <Route path="/websites" element={<Websites />} />  */}
       </Routes>
     </Router>
