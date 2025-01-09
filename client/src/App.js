@@ -5,6 +5,7 @@ import Blog from './components/Blog/Blog';
 import BlogPost from './components/Blog/BlogPost';
 import Projects from './components/Projects/Projects';
 import ProjectIDE from './components/Project_IDE/ProjectIDE';
+import Websites from './components/Websites/Websites';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/blogs/:id" element={<BlogPost />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:id" element={<ProjectIDE />} />
-        {/* <Route path="/websites" element={<Websites />} />  */}
+        <Route path="/websites" element={<Websites />} /> 
       </Routes>
     </Router>
   );

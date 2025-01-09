@@ -1,40 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './../Projects/Projects.css';
 import { Link } from 'react-router-dom';
 
 const Projects = () => {
-    const [listProjects, setListprojects] = useState([]);
+  // Hard-code the array of projects based on the folder names
+  const listProjects = [
+    { id: 'hello_world_test', name: 'Hello World Test', description: 'A simple test project' },
+    { id: 'tarot_game', name: 'Tarot Game', description: 'A more complex project but still a test project for the portfolio site.' },
+    // Add more projects as needed
+  ];
 
-    useEffect(() => {
-        // Fetches projects from the backend
-        axios.get('http://localhost:5000/api/projects')
-        .then(response => {
-            setListprojects(response.data);
-        })
-        .catch(error => {
-            console.error('Error fetching blog posts:', error);
-        })
-    }, []);
-
-    return (
-            <div className="projects-container">
-            <div className="projects-wrapper">
-                <h1 className="projects-page-title">Projects</h1> 
-             </div> 
-              <div className="projects">
-              {listProjects.map((project) => (
-            <div key={project.id} className="projects-card">
-                <h2>{project.name}</h2> {/* Make sure this matches the property in the response */}
-                <Link to={`/projects/${project.id}`} className="check-it-out-button">
-                    Check It Out
-                </Link>
-            </div>
-            ))}
-              </div>
-            </div>
-    )
-
+  return (
+    <div className="projects-container">
+      <div className="projects-wrapper">
+        <h1 className="projects-page-title">Projects</h1> 
+      </div> 
+      <div className="projects">
+        {listProjects.map((project) => (
+          <div key={project.id} className="projects-card">
+            <h2>{project.name}</h2>  {/* Project name */}
+            <p>{project.description}</p> {/* Project description */}
+            <Link to={`/projects/${project.id}`} className="check-it-out-button">
+              Check It Out
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Projects;
