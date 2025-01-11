@@ -18,8 +18,8 @@ const Projects = () => {
       <div className="projects">
         {listProjects.map((project) => (
           <div key={project.id} className="projects-card">
-            <h2>{project.name}</h2>  {/* Project name */}
-            <p>{project.description}</p> {/* Project description */}
+            <h2>{project.name}</h2> 
+            <p>{project.description}</p> 
             <Link to={`/projects/${project.id}`} className="check-it-out-button">
               Check It Out
             </Link>
