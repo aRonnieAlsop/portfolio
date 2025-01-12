@@ -200,3 +200,16 @@
     }
   }
   
+/* Media query for viewports with width 3,171px or less */
+@media (max-width: 3172px) {
+  .title {
+      font-size: 20rem; /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 2734px) {
+  .title {
+    /* this is where I need to change the format */
+  }
+}
+  

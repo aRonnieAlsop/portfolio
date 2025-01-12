@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+            console.log('Window width:', window.innerWidth); // Logs the width to the console
+        };
+        
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     return (
+        <div> <h1>Window width: {windowWidth}</h1>
         <div className="content-wrapper">
             <div className="homepage">
                 <div className="info-bar">
@@ -35,6 +49,7 @@ const HomePage = () => {
                 </header>
 
             </div>
+        </div>
         </div>
     );
 };
