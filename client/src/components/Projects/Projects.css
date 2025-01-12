@@ -53,11 +53,23 @@
   }
   
   .check-it-out-button {
-    background-color: #007bff;
+    background-color: #2fada1;
     color: #fff;
     border: none;
     padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    margin-right: 150px;
+  }
+
+  .github-button {
+    background-color: #2fada1;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
     border-radius: 5px;
     margin-top: 0.5rem;

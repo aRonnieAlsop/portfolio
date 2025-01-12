@@ -8,27 +8,19 @@ const ProjectIDE = () => {
   const [selectedFileContent, setSelectedFileContent] = useState('');
 
   useEffect(() => {
+    // Fetch project details
     axios.get(`http://localhost:5000/api/projects/${id}`)
       .then(response => {
         setProject(response.data);
-        console.log("Project files:", response.data.files);  // Log the files array
       })
       .catch(error => {
         console.error('Error fetching project details:', error);
       });
   }, [id]);
-  
 
   // Handle file selection from the file tree
   const handleFileClick = (fileUrl) => {
-    // Fetch the file content from the backend proxy
-    axios.get(`http://localhost:5000/api/proxy-file`, { params: { fileUrl } })
-      .then(response => {
-        setSelectedFileContent(response.data);  // Set the content of the file
-      })
-      .catch(error => {
-        console.error('Error fetching file content:', error);
-      });
+    setSelectedFileContent(fileUrl);  // Set the selected file's URL to display
   };
 
   if (!project) {
@@ -36,29 +28,35 @@ const ProjectIDE = () => {
   }
 
   return (
-<div style={{ width: '25%', borderRight: '2px solid #ccc', padding: '10px' }}>
-  <h3>Project Files</h3>
-  <ul style={{ listStyleType: 'none', padding: 0 }}>
-    {/* Render the list of files */}
-    {project.files.map((file) => (
-      <li
-        key={file.id}
-        style={{
-          cursor: 'pointer',
-          padding: '5px',
-          backgroundColor: '#f5f5f5',
-          marginBottom: '5px',
-          borderRadius: '4px',
-        }}
-        onClick={() => handleFileClick(file.github_url)}  // Ensure this function is triggered on click
-      >
-        {file.file_path}
-      </li>
-    ))}
-  </ul>
-</div>
+    <div>
+      <h1>{project.name}</h1>
+      <p>{project.description}</p>
 
+      <div>
+        <h3>Project Files</h3>
+        <ul>
+          {project.files.map((file) => (
+            <li key={file.id} onClick={() => handleFileClick(file.github_url)}>
+              {file.file_path}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        {selectedFileContent ? (
+          <div>
+            <h4>File Content:</h4>
+            <a href={selectedFileContent} target="_blank" rel="noopener noreferrer">Open file in new tab</a>
+          </div>
+        ) : (
+          <div>Select a file to view</div>
+        )}
+      </div>
+    </div>
   );
 };
 
 export default ProjectIDE;
+
+
