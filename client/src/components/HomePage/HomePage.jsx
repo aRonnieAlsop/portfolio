@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    /* Figuring out @ what width to change my layout*/
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-            console.log('Window width:', window.innerWidth); // Logs the width to the console
-        };
-        
-        window.addEventListener('resize', handleResize);
 
-        // Cleanup on component unmount
-        return () => window.removeEventListener('resize', handleResize);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      // Cleanup on component unmount
+      return () => window.removeEventListener('resize', handleResize);
     }, []);
+
     return (
-        <div> <h1>Window width: {windowWidth}</h1>
         <div className="content-wrapper">
             <div className="homepage">
                 <div className="info-bar">
@@ -31,12 +31,21 @@ const HomePage = () => {
                             <h1 className="title">Cat Woman</h1>
                             <h2 className="subtitle">Software Engineer</h2>
                             </div>
-                        <div className="stacked-boxes">
-                            <Link to="/projects" className="box">Projects</Link>
-                            <Link to="/websites" className="box">Websites</Link>
-                            <Link to="/blog" className="box">Blog</Link>
-                        </div>
-                    </div>
+        {windowWidth > 1520 && (
+          <div className="stacked-boxes">
+            <Link to="/projects" className="box">Projects</Link>
+            <Link to="/websites" className="box">Websites</Link>
+            <Link to="/blog" className="box">Blog</Link>
+          </div>
+        )}
+      </div>
+      {windowWidth <= 1520 && (
+        <div className="stacked-boxes">
+          <Link to="/projects" className="box">Projects</Link>
+          <Link to="/websites" className="box">Websites</Link>
+          <Link to="/blog" className="box">Blog</Link>
+        </div>
+      )}
                     <div className="media-container">
                         <div className="slatted-image">
                             <img 
@@ -49,7 +58,6 @@ const HomePage = () => {
                 </header>
 
             </div>
-        </div>
         </div>
     );
 };
