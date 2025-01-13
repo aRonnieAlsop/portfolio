@@ -4,7 +4,7 @@ import './HomePage.css';
 
 const HomePage = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+    /* Figuring out @ what width to change my layout*/
     useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);

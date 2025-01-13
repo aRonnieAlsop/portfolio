@@ -26,7 +26,6 @@
     border-bottom: 5px solid black;
     padding: 5px 5px 5px 95px;
     margin-left: 60px;
-    margin-right: 850px;
     text-align: left;
     position: relative;
     box-sizing: border-box;
@@ -35,10 +34,11 @@
     align-items: center;
     line-height: .05;
     flex-grow: 1;
+    margin-right: 50px;
   }
 
   .title {
-    font-size: 25rem;
+    font-size: 30rem;
     color: #FF1493;
     font-family: "Bebas Neue", serif;
     position: relative;
@@ -52,17 +52,22 @@
   }
   
   .subtitle {
-    font-size: 2.5rem; 
-    font-weight: 400;  
+    font-size: 3rem;
+    font-weight: 400;
+    font-family: Roboto;
     color: #C0B8A4;     
     margin: 0;
-    margin-left: 600px;         
+    margin-left: 900px;  
+    margin-bottom: 8px;
+    letter-spacing: 2.5rem;
+    text-shadow:  
+    .5px -.5px 0 #C0B8A4;  
   }
   
   .stacked-boxes {
     position: absolute;
     top: 0;
-    right: -300px;
+    right: 0px;
     bottom: 0;
     transform: translateY(0);
     display: flex;
@@ -194,22 +199,107 @@
     padding-left: 3.8px;
   }
   
-  @keyframes blink {
-    50% {
-        opacity: 0;
-    }
-  }
-  
 /* Media query for viewports with width 3,171px or less */
-@media (max-width: 3172px) {
+  @media (max-width: 3036px) {
   .title {
-      font-size: 20rem; /* Adjust this value as needed */
+    font-size: 29rem;
   }
 }
 
-@media (max-width: 2734px) {
+@media (max-width: 2978px) {
   .title {
-    /* this is where I need to change the format */
+    font-size: 27rem;
   }
 }
-  
+
+@media (max-width: 2844px) {
+  .title {
+    font-size: 26rem;
+  }
+}
+
+@media (max-width: 2776px) {
+  .title {
+    font-size: 25rem;
+  }
+}
+
+@media (max-width: 2653px) {
+  .subtitle {
+    font-size: 2.5rem;
+    margin-left: 800px;
+  }
+  .title {
+    font-size: 24rem;
+  }
+}
+
+@media (max-width: 2568px) {
+  .title {
+    font-size: 22rem;
+  }
+  .subtitle {
+    font-family: 2rem;
+  }
+}
+
+@media (max-width: 2434px) {
+  .title {
+    font-size: 20rem;
+  }
+  .subtitle {
+    font-family: 1.5rem;
+    margin-left: 700px;
+  }
+}
+
+@media (max-width: 2314px) {
+  .title {
+    font-size: 19rem;
+  }
+  .subtitle {
+    margin-left: 650px;
+    letter-spacing: 1.5rem;
+  }
+}
+
+@media (max-width: 2204px) {
+  .title {
+    font-size: 17rem;
+  }
+  .subtitle {
+    margin-left: 585px;
+  }
+}
+
+@media (max-width: 2022px) {
+  .title {
+    font-size: 15rem;
+  }
+  .subtitle {
+    margin-left: 500px;
+  }
+}
+
+@media (max-width: 1866px) {
+  .title {
+    font-size: 14rem;
+  }
+  .subtitle {
+    margin-left: 450px;
+  }
+  .slatted-image {
+    width: 1280px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 1768px) {
+  .title {
+    font-size: 13rem;
+  }
+  .subtitle {
+    margin-left: 400px;
+    font-size: 1.8rem;
+  }
+}
