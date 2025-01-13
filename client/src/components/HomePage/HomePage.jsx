@@ -4,11 +4,11 @@ import './HomePage.css';
 
 const HomePage = () => {
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1520);
 
     useEffect(() => {
       const handleResize = () => {
-        setWindowWidth(window.innerWidth);
+        setIsLargeScreen(window.innerWidth > 1520);
       };
   
       window.addEventListener('resize', handleResize);
@@ -28,25 +28,19 @@ const HomePage = () => {
                 <header className="header">
                     <div className="title-box">
                         <div className="title-container">                        
-                            <h1 className="title">Cat Woman</h1>
+                            <h1 className="title">Arron Alsop</h1>
                             <h2 className="subtitle">Software Engineer</h2>
                             </div>
-        {windowWidth > 1520 && (
+        {isLargeScreen && (
           <div className="stacked-boxes">
             <Link to="/projects" className="box">Projects</Link>
             <Link to="/websites" className="box">Websites</Link>
             <Link to="/blog" className="box">Blog</Link>
           </div>
         )}
-      </div>
-      {windowWidth <= 1520 && (
-        <div className="stacked-boxes">
-          <Link to="/projects" className="box">Projects</Link>
-          <Link to="/websites" className="box">Websites</Link>
-          <Link to="/blog" className="box">Blog</Link>
         </div>
-      )}
-                    <div className="media-container">
+        {isLargeScreen && (
+                        <div className="media-container">
                         <div className="slatted-image">
                             <img 
                             src="/assets/cat_woman.png"
@@ -54,11 +48,33 @@ const HomePage = () => {
                             className="image-strips"
                             />
                         </div>
-                    </div>
-                </header>
-
-            </div>
+                    </div>      
+        )}
+        </header>
+      {!isLargeScreen && (
+        <main className="mobile-nav-links"> 
+        <div className="stacked-boxes">
+          <Link to="/projects" className="box">Projects</Link>
+          <Link to="/websites" className="box">Websites</Link>
+          <Link to="/blog" className="box">Blog</Link>
         </div>
+        </main>
+      )}
+      {!isLargeScreen && (
+          <footer className="footer">
+            <div className="media-container">
+              <div className="slatted-image">
+                <img
+                  src="/assets/cat_woman.png"
+                  alt="place_holder_image"
+                  className="image-strips"
+                />
+              </div>
+            </div>
+          </footer>
+        )}
+    </div>
+    </div>
     );
 };
 
