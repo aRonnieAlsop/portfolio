@@ -37,7 +37,7 @@ const Projects = () => {
             </Link>
             {/* Link to the GitHub repository */}
            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="repo-button">
-              Explore the Repository
+              Explore the Repo
             </a>
           </div>
         ))}

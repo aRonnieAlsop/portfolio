@@ -61,15 +61,21 @@
   
   .demo-button,
   .repo-button {
-    color: #101D6B;
-    padding: 0.2rem 3rem;
-    padding-left: .5rem;
-    font-size: 1.5rem;
+    color: black;
+    font-size: 1.7rem;
+    border: 1px solid black;
+    text-decoration: none;
+    padding: .1rem .1rem;
+  }
+
+  .demo-button {
+    margin-right: 6.8rem;
   }
   
 
   .demo-button:hover,
   .repo-button:hover  {
-    color: black;
+    color: white;
     cursor: pointer;
+    background-color: black;
   }
