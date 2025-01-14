@@ -53,18 +53,18 @@
   }
   
   .read-more-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 0.5rem;
+    color: black;
+    font-size: 1.7rem;
+    border: 1px solid black;
+    text-decoration: none;
+    padding: .3rem 1.5rem;
+    margin-left: 4rem;
   }
   
   .read-more-button:hover {
-    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    background-color: black;
   }
   
   .blog-post-content {
