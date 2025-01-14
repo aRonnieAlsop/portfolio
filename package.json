@@ -1,0 +1,15 @@
+{
+  "name": "portfolio_website",
+  "version": "1.0.0",
+  "description": ">>The personal blog application is built using React on the frontend and SQLite for the backend. The blog content, including rich HTML (such as text, images, and videos), is stored directly in the SQLite database for easy management and retrieval.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start --prefix client",
+    "test": "npm run test --prefix client",
+    "build": "npm run build --prefix client",
+    "lint": "npm run lint --prefix client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
