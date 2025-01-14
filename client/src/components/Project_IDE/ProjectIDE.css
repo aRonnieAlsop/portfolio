@@ -1,0 +1,37 @@
+.fake-ide {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .file-tree {
+    width: 25%;  
+    padding: 20px;
+    border-right: 2px solid #ccc;
+  }
+  
+  .file-tree ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .file-tree li {
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .file-tree li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .file-view {
+    width: 75%;  
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .file-view iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
