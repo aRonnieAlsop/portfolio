@@ -51,38 +51,25 @@
     font-size: 1.3rem;
     color: #555;
   }
-  
-  .check-it-out-button {
-    background-color: #2fada1;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 0.5rem;
-    margin-right: 150px;
-  }
 
-  .github-button {
-    background-color: #2fada1;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
+  .project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .demo-button,
+  .repo-button {
+    color: #101D6B;
+    padding: 0.2rem 3rem;
+    padding-left: .5rem;
     font-size: 1.5rem;
+  }
+  
+
+  .demo-button:hover,
+  .repo-button:hover  {
+    color: black;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 0.5rem;
   }
-  
-  .read-more-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .blog-post-content {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  
