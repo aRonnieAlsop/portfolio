@@ -11,6 +11,7 @@ const Projects = () => {
       description: 'A simple test project',
       githubUrl: 'https://github.com/aRonnieAlsop/hello_world_test',
       image_url: '../../assets/hello_world_test_deploy.png',
+      demoUrl: 'https://aronniealsop.github.io/hello_world_test/',
      },
     { 
       id: 'portfolio_website', 
@@ -32,12 +33,12 @@ const Projects = () => {
           <img src={project.image_url} alt={project.title} className="project-image" />
             <h2>{project.name}</h2> 
             <p>{project.description}</p> 
-            <Link className="demo-button">
-              Access the Demo
-            </Link>
+            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="demo-button">
+             Demo
+            </a>
             {/* Link to the GitHub repository */}
            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="repo-button">
-              Explore the Repo
+            Repo
             </a>
           </div>
         ))}

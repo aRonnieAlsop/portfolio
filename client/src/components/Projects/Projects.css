@@ -65,11 +65,11 @@
     font-size: 1.7rem;
     border: 1px solid black;
     text-decoration: none;
-    padding: .1rem .1rem;
+    padding: .3rem 2rem;
   }
 
   .demo-button {
-    margin-right: 6.8rem;
+    margin-right: 17rem;
   }
   
 
@@ -78,4 +78,10 @@
     color: white;
     cursor: pointer;
     background-color: black;
+  }
+
+  @media (max-width: 1520px) {
+    .demo-button {
+      margin-right: 8rem;
+    }
   }
