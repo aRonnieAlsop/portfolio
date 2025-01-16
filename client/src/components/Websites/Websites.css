@@ -1,23 +1,80 @@
-.under-construction {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-    width: 100vw;  
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  .full-screen-image {
-    object-fit: cover;  
-    width: 100%;        
-    height: 100%;       
-  }
-  
+.websites-page-title {
+  font-size: 4.4rem;
+  font-family: Roboto;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  width: 100vw;
+  margin-left: -50vw;
+  position: relative;
+  left: 50%;
+  text-align: center;
+}
 
-  @media (max-width: 1520px) {
-    .full-screen-image {
-      height: auto;
-      width: 100%; 
-    }
+.websites-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+.websites {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.websites-card {
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.website-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.website-post-date {
+  font-size: 0.9rem;
+  color: #666;
+} 
+
+.websites-card h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.websites-card p {
+  font-size: 1.3rem;
+  color: #555;
+}
+
+.website-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.site-button {
+  color: black;
+  font-size: 1.7rem;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: .3rem 2rem;
+}
+
+.site-button:hover {
+  color: white;
+  cursor: pointer;
+  background-color: black;
+}
+
+@media (max-width: 1520px) {
+  .site-button {
+    margin-right: 8rem;
   }
+}

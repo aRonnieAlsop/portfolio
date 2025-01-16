@@ -3,7 +3,7 @@ import './../Projects/Projects.css';
 import { Link } from 'react-router-dom';
 
 const Projects = () => {
-  // Hard-coded array of projects based on the folder names
+  // Hard-coded array of projects 
   const listProjects = [
     { 
       id: 'hello_world_test', 
