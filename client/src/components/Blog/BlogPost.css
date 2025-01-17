@@ -17,13 +17,13 @@
     text-align: justify;
 }
 
-/* Centering html images & videos */ 
+/* Centering html images & videos */
 .blog-post-content img,
 .blog-post-content iframe {
-  display: block;       
-  margin: 0 auto;      
-  max-width: 100%;      
-  height: auto; 
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
 }
 
 
@@ -41,4 +41,3 @@
         padding: 25px;
     }
 }
-

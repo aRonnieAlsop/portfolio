@@ -20,15 +20,15 @@ const Blog = () => {
 
   return (
     <div className="blog-container">
-    <div className="title-wrapper">
-        <h1 className="blog-page-title">Blog Posts</h1> 
-     </div> 
+      <div className="title-wrapper">
+        <h1 className="blog-page-title">Blog Posts</h1>
+      </div>
       <div className="blog-posts">
         {blogPosts.map((post) => (
           <div key={post.id} className="blog-post">
             <img src={post.image_url} alt={post.title} className="blog-image" />
             <p className="blog-post-date">
-                {new Date(post.created_at).toLocaleDateString()}
+              {new Date(post.created_at).toLocaleDateString()}
             </p>
             <h2>{post.title}</h2>
             <p className="blog-post-content">
@@ -37,7 +37,7 @@ const Blog = () => {
                 : post.synopsis || `${post.blog_content.slice(0, 100)}...`} {/* Show a synopsis of the blog post */}
             </p>
             <Link to={`/blogs/${post.id}`} className="read-more-button">
-                Read More
+              Read More
             </Link>
           </div>
         ))}
