@@ -7,10 +7,12 @@ const BlogPost = () => {
   const [blogPost, setBlogPost] = useState(null);
   const [error, setError] = useState(null);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     const fetchBlogPost = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/blogs/${id}`);
+        const response = await fetch(`${API_URL}/blogs/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch the blog post');
         }
@@ -24,7 +26,7 @@ const BlogPost = () => {
     };
 
     fetchBlogPost();
-  }, [id]);
+  }, [API_URL, id]);
 
   if (error) {
     return <div>Error: {error}</div>;

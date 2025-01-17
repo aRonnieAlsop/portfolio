@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/projects', express.static(path.join(__dirname, 'projects')));
 
 app.use('/api', blogs);
-app.use('/api', projectRoutes);
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
